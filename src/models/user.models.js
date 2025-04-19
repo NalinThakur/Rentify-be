@@ -35,7 +35,7 @@ const userSchema=new Schema({
       role:{
         type:String,
         enum:["renter","owner"],
-        required:true
+        // required:true
 
       },
       community:{
