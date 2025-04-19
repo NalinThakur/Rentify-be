@@ -4,8 +4,8 @@ import cookieParser from "cookie-parser"
 const app=express()
 
 app.use(cors({
-    origin: ['http://127.0.0.1:5500', 'https://goku21g.github.io/Rentify'],
-    credentials:true
+    origin: "*",
+    // credentials:true
 }))
 
 app.use(express.json({limit:"50mb"}))
