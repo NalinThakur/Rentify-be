@@ -24,10 +24,10 @@ const generateAccessAndRefreshToken=async(userId)=>{
 }
 
 const registerUser=asyncHandler(async(req,res)=>{
-    const {username,fullname,email,password,phone ,role}=req.body;
+    const {username,fullname,email,password,phone}=req.body;
 
     if(
-        [username,fullname,email,password,phone ,role].some((field)=>field?.trim()==="")
+        [username,fullname,email,password,phone ].some((field)=>field?.trim()==="")
     ){
         throw new ApiError(400,"All fields are required")
     }
@@ -51,7 +51,7 @@ const registerUser=asyncHandler(async(req,res)=>{
         password,
         phone,
         avatar:avatar?.url||"",
-        role
+        // role
         
     })
 
@@ -78,14 +78,14 @@ const loginUser=asyncHandler(async(req,res)=>{
     //if password is correct send refresh token and access token to user
     //send cookie
     //else send response
-    const {email, phone ,password}=req.body
+    const {email ,password}=req.body
     
-    if(!(phone||email)){
+    if(!(email)){
         throw new ApiError(400,"Phone or email is required")
         
     }
     const user=await User.findOne({
-        $or:[{phone},{email}]
+        $or:[{email}]
   })
     if(!user){
         throw new ApiError(404,"User does not exist")
