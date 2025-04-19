@@ -4,7 +4,7 @@ import cookieParser from "cookie-parser"
 const app=express()
 
 app.use(cors({
-    origin:process.env.CORS_ORIGIN,
+    origin: ['http://127.0.0.1:5500', 'https://goku21g.github.io/Rentify'],
     credentials:true
 }))
 
