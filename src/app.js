@@ -22,7 +22,7 @@ import messageRoutes from "./routes/chat.routes.js"
 
 app.use("/api/v1/auth",authRouter)
 app.use("/api/v1/user",userRouter)
-app.use("api/v1/message",messageRoutes)
+app.use("/api/v1/message",messageRoutes)
 
 
 
